@@ -3,8 +3,9 @@ from pydantic import BaseModel, Field
 from app.bigram_model import BigramModel
 from classifier_api import router as classifier_router
 from gan_api import router as gan_router
+from advanced_api import router as advanced_router
 
-app = FastAPI(title="Text Generation, Image Classification and GAN")
+app = FastAPI(title="Text Generation, Image Classification and Image Generation")
 
 corpus = [
     "The Count of Monte Cristo is a novel written by Alexandre Dumas. "
@@ -38,3 +39,4 @@ def generate_text(request: TextGenerationRequest):
 
 app.include_router(classifier_router)
 app.include_router(gan_router)
+app.include_router(advanced_router)
